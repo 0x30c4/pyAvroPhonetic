@@ -24,6 +24,13 @@ along with pyAvroPhonetic.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 def utf(text):
+    """In python 3 strings are unicode by default."""
+    try:
+        unicode        # check if unicode is defined
+    except NameError:  # not found: python 3: replace by str
+        unicode = str
+
+
     """Shortcut funnction for encoding given text with utf-8"""
     try:
         output = unicode(text, encoding='utf-8')
